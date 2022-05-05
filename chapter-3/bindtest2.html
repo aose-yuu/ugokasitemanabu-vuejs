@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <a href="https://newsatcl-pctr.c.yimg.jp/r/iwiz-amd/20220221-00010005-huffpost-000-3-view.jpg?exp=10800">リンクを直接指定</a>
+    <a v-bind:href="nekoURL">リンクをv-bindで指定</a>
+  </div>
+</body>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      nekoURL: 'https://newsatcl-pctr.c.yimg.jp/r/iwiz-amd/20220221-00010005-huffpost-000-3-view.jpg?exp=10800'
+    }
+  })
+</script>
+</html>
