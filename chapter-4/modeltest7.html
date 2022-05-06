@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <label><input type="radio" value="https://tshop.r10s.jp/long-lifeservice/cabinet/05812558/06045019/ls0253-1.jpg" v-model="fileURL">neko1</label><br>
+
+    <label><input type="radio" value="https://img.huffingtonpost.com/asset/5f3caa10230000b70652270d.jpeg?cache=SuZrhScF6p&ops=1778_1000" v-model="fileURL">neko2</label><br>
+
+    <label><input type="radio" value="https://dol.ismcdn.jp/mwimgs/8/d/1080m/img_8db0612c13c0013326bfb1b66431df95645897.jpg" v-model="fileURL">neko3</label><br>
+
+    <p>{{ fileURL }}を選択</p>
+    <img v-bind:src="fileURL">
+  </div>
+</body>
+
+<style>
+  img {
+    object-fit: cover;
+    height: 500px;
+    width: 500px;
+  }
+</style>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      fileName: '',
+      fileURL: ''
+    }
+  })
+</script>
+</html>
