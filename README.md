@@ -2,7 +2,10 @@
 
 ## 課題
 - JavaScript
+  - this
   - sort
   - filter
+    - jfilter and indexOf
+  - callback
 
 - Google Charts
