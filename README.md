@@ -8,4 +8,7 @@
     - jfilter and indexOf
   - callback
 
+- Vue.js
+  - v-model.~
+
 - Google Charts
