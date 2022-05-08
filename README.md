@@ -5,7 +5,7 @@
   - this
   - sort
   - filter
-    - jfilter and indexOf
+    - filter and indexOf
   - callback
   - setInterval, clearInterval
 
