@@ -7,6 +7,7 @@
   - filter
     - jfilter and indexOf
   - callback
+  - setInterval, clearInterval
 
 - Vue.js
   - v-model.~
