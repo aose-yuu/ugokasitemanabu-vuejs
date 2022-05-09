@@ -13,6 +13,7 @@
 
 - Vue.js
   - v-model.~
+  - v-bind:class="{donestyle: todo.done}" falseとtrueでクラスを付けるか判定
 
 - Google Charts
 - TweenMax
