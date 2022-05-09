@@ -2,6 +2,8 @@
 
 ## 課題
 - JavaScript
+  - ~~splice~~
+  - ~~Math.random~~
   - this
   - sort
   - filter
