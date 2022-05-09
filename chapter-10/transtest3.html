@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>クリックしたらソート・シャッフルする例</h2>
+    <ul>
+      <transition-group>
+        <li v-for="item in dataArray" v-bind:key="item">{{ item }}</li>
+      </transition-group>
+    </ul>
+
+    <button v-on:click="sortData">ソートする</button>
+    <button v-on:click="shuffleData">シャッフルする</button>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        dataArray: ['one', 'two', 'three', 'four', 'five']
+      },
+      methods: {
+        sortData: function() {
+          this.dataArray.sort(function(a, b) {
+            if (a < b) return -1;
+            if (a > b) return 1;
+            return 0;
+          });
+        },
+
+        shuffleData: function() {
+          let buffer = [];
+          let len = this.dataArray.length;
+
+          for (let i = len; len > 0; len--) {
+            let r = Math.floor(Math.random() * len);
+            buffer.push(this.dataArray[r]);
+            this.dataArray.splice(r, 1);
+          }
+
+          this.dataArray = buffer;
+        },
+      }
+    })
+  </script>
+
+  <style>
+    .v-move {
+      transition: 0.5s;
+    }
+  </style>
+</body>
+</html>
