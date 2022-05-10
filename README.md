@@ -10,7 +10,7 @@
     - filter and indexOf
   - callback
   - setInterval, clearInterval
-  - addEventListenner('change', loadFile, false)
+  - addEventListenner("change", loadFile, false)
 
 - Vue.js
   - v-model.~
