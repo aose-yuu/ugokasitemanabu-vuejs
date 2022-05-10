@@ -11,6 +11,10 @@
   - callback
   - setInterval, clearInterval
   - addEventListenner("change", loadFile, false)
+  - let [example] = function(e) {}
+  - e.target.result
+  - onload
+  - JSON.parse
 
 - Vue.js
   - v-model.~
