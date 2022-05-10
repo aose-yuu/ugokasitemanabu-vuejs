@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>JSONを読み込む例(JavaScript)</h2>
+  <input type="file" id="loader">
+  <div id="app"></div>
+
+  <script>
+    const obj1 = document.getElementById("loader");
+    obj1.addEventListener('change', loadFile, false);
+
+    function loadFile(e) {
+      file = e.target.files[0];
+      if (file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+          alert(`>>> ${e.target.result}`);
+          json = JSON.parse(e.target.result);
+          alert(`>>> ${json[0].title}`)
+          alert(`>>> ${json[0].body}`)
+        };
+        reader.readAsText(file);
+      }
+    }
+  </script>
+</body>
+</html>
