@@ -15,7 +15,8 @@
   - e.target.result
   - onload
   - JSON.parse
-  - readAsText(file)
+  - let reader = new FileReader()
+  - reader.readAsText(file)
 
 - Vue.js
   - v-model.~
