@@ -18,11 +18,13 @@
   <script>
     const MyComponent = {
       props: ["object"],
-      template: `
+      template: 
+      `
       <div style="width: 300px; backgroundColor: #ffddaa;">
-      <p style="backgroundColor: #ffa95e;">{{ object.title }}</p>
-      <p>解説：{{ object.body }}</p>
-      </div>`
+        <p style="backgroundColor: #ffa95e;">{{ object.title }}</p>
+        <p>解説：{{ object.body }}</p>
+      </div>
+      `
     }
 
     new Vue({
