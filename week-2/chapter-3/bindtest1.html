@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>画像を指定する例</h2>
+  <div id="app">
+    <div>
+      <img src="https://thumb.photo-ac.com/c6/c658c0ef44c4bf2c172ef2d631917589_t.jpeg">
+      <p>画像を直接指定</p>
+    </div>
+    <div>
+      <img v-bind:src="imgUrl">
+      <p>画像をv-bindで指定</p>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        imgUrl: 'https://thumb.photo-ac.com/c6/c658c0ef44c4bf2c172ef2d631917589_t.jpeg'
+      }
+    })
+  </script>
+</body>
+</html>
