@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>画像の表示をラジオボタンで切り替える例</h2>
+  <div id="app">
+    <label><input type="radio" v-model="fileName" value="https://pbs.twimg.com/media/FSZUA_mVkAYYLJy.jpg">neko-1</label><br>
+    <label><input type="radio" v-model="fileName" value="https://thumb.photo-ac.com/c6/c658c0ef44c4bf2c172ef2d631917589_t.jpeg">neko-2</label><br>
+    <img v-bind:src="fileName" style="width: 500px; height: auto; object-fit: cover;">
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        fileName: ''
+      }
+    })
+  </script>
+</body>
+</html>
