@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>複数のチェックボックスのONを、配列にする例</h2>
+  <div id="app">
+    <label><input type="checkbox" v-model="myChecks" value="red">赤</label><br>
+    <label><input type="checkbox" v-model="myChecks" value="green">緑</label><br>
+    <label><input type="checkbox" v-model="myChecks" value="blue">青</label><br>
+    <p>選択したのは、{{ myChecks }}</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myChecks: []
+      }
+    })
+  </script>
+</body>
+</html>
