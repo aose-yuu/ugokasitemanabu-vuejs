@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>金額を入力したら、消費税込みの金額を計算する例</h2>
+  <div id="app">
+    <label>
+      <input type="number" v-model="price">円 x 
+      <input type="number" v-model="total">個
+    </label>
+    <p>合計価格 : {{ totalPrice }}円</p>
+    <p>税込価格 : {{ taxIncluded }}円</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        price: 0,
+        total: 0
+      },
+      computed: {
+        totalPrice: function() {
+          return this.price * this.total;
+        },
+        taxIncluded: function() {
+          return Math.round(this.totalPrice * 1.10);
+        }
+      }
+    })
+  </script>
+</body>
+</html>
