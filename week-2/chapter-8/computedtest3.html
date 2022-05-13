@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>文章を入力したら、残りの文字数を表示する例</h2>
+  <div id="app">
+    <p>ご感想は、{{ limit }}文字以内でご入力ください。</p>
+    <textarea v-model="myText"></textarea>
+    <p v-bind:style="{color: changeColor}">残り{{ remaining }}文字です。</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        limit: 140,
+        myText: '今日はいい天気ですね。',
+      },
+      computed: {
+        remaining: function() {
+          let textCount = this.myText.length;
+          return this.limit - textCount;
+        },
+        changeColor: function() {
+          let color = 'green';
+          if (this.remaining < 20) {
+            color = 'orange';
+          }
+          if (this.remaining < 1) {
+            color = 'red';
+          }
+          return color;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
