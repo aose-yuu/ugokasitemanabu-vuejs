@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.4.0/marked.min.js"></script>
+</head>
+<body>
+  <h2>Markdownエディタの例</h2>
+  <div id="app">
+    <div class="flex">
+      <textarea v-model="input"></textarea>
+      <div style="width: 50%;" v-html="convertMarkdown"></div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        input: ''
+      },
+      computed: {
+        convertMarkdown: function() {
+          return marked(this.input);
+        }
+      }
+    })
+  </script>
+
+  <style>
+    .flex {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      column-gap: 20%;
+    }
+    textarea {
+      width: 50%;
+      height: 30em;
+      padding: 2em;
+      line-height: 1.5;
+      font-size: 1.5em;
+    }
+  </style>
+</body>
+</html>
