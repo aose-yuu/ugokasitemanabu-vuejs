@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>リストの並びが移動しながら変わるアニメーションの例</h2>
+  <div id="app">
+    <ul>
+      <transition-group>
+        <li v-for="item in items" v-bind:key="item">{{ item }}</li>
+      </transition-group>
+    </ul>
+    <button v-on:click="sortList">ソートする</button>
+    <button v-on:click="shuffleList">シャッフルする</button>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        items: ['one', 'five', 'three', 'two', 'four']
+      },
+      methods: {
+        sortList: function() {
+          this.items.sort((a, b) => {return (a < b ? -1 : 1)});
+        },
+        shuffleList: function() {
+          let tmpList = [];
+          let listLength = this.items.length;
+          for (let i = listLength; listLength > 0; listLength--) {
+            let randomNum = Math.floor(Math.random() * listLength);
+            tmpList.push(this.items[randomNum]);
+            this.items.splice(randomNum, 1);
+          }
+          this.items = tmpList;
+        }
+      }
+    })
+  </script>
+
+  <style>
+    .v-move {
+      transition: 0.5s;
+    }
+  </style>
+</body>
+</html>
