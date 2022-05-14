@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>ボタンを押してリストが増減するとき、アニメーションする例</h2>
+  <div id="app">
+    <ul>
+      <transition-group>
+      <li v-for="item in items" v-bind:key="item">{{ item }}</li>
+      </transition-group>
+    </ul>
+    <div style="padding: 20px;">
+      <input type="text" v-model="inputText">
+    </div>
+    <button v-on:click="addList">一番下に追加</button>
+    <button v-on:click="removeList">一番下を削除</button>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        items: ['桃太郎', 'かぐや姫', 'かちかち山'],
+        inputText: ''
+      },
+      methods: {
+        addList: function() {
+          this.items.push(this.inputText);
+          this.inputText = '';
+        },
+        removeList: function() {
+          let lastNum = this.items.length - 1;
+          this.items.splice(lastNum, 1);
+        }
+      }
+    })
+  </script>
+
+  <style>
+    .v-enter-active, .v-leave-active {
+      transition: 0.5s;
+    }
+    .v-enter, .v-leave-to {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  </style>
+</body>
+</html>
