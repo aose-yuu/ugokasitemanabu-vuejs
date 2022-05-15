@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>ToDoリスト</h2>
+  <div id="app">
+    <div style="padding: 10px;">
+      <input type="text" v-model="inputText">
+      <button v-on:click="addTodo">追加</button>
+    </div>
+    <div v-for="todo in todos">
+      <label>
+        <input type="checkbox" v-model="todo.done">
+        <span v-bind:class="{donestyle: todo.done}">{{ todo.name }}</span>
+      </label>
+    </div>
+    <p>{{ doneTodo }} / {{ allTodo }}件 処理済み</p>
+    <button v-on:click="cleanTodo">処理済みのToDoを削除</button>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        inputText: '',
+        todos: [
+          {done: false, name: 'パンを買う'},
+          {done: false, name: 'コーヒーを買う'}
+        ]
+      },
+      computed: {
+        allTodo: function() {
+          return this.todos.length;
+        },
+        doneTodo: function() {
+          return this.todos.filter((todo) => {
+            return todo.done;
+          }).length;
+        }
+      },
+      methods: {
+        addTodo: function() {
+          let todo = this.inputText;
+          this.todos.push({done: false, name: todo});
+          this.inputText = '';
+        },
+        cleanTodo: function() {
+          this.todos = this.todos.filter((todo) => {
+            return !todo.done;
+          });
+        }
+      }
+    })
+  </script>
+
+  <style>
+    .donestyle {
+      text-decoration: line-through;
+      color: lightgray;
+    }
+  </style>
+</body>
+</html>
