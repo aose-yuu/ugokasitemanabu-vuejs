@@ -26,8 +26,8 @@
       el: '#app',
       data: {
         dataArray: [
-          {title: 'AAA', body: 'aaa'},
           {title: 'BBB', body: 'bbb'},
+          {title: 'AAA', body: 'aaa'},
           {title: 'CCC', body: 'ccc'}
         ]
       },
@@ -44,7 +44,7 @@
         shuffleData: function() {
           let tmpArray = [];
           let dataArrayLength = this.dataArray.length;
-          for (let i = dataArrayLength; i > 0; dataArrayLength--) {
+          for (let i = dataArrayLength; dataArrayLength > 0; dataArrayLength--) {
             let randNum = Math.floor(Math.random() * dataArrayLength);
             let tmpObj = this.dataArray[randNum];
             tmpArray.push(tmpObj);
