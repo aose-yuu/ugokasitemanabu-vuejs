@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h2>JSONを読み込む例</h2>
+  <input type="file" id="loader">
+
+  <script>
+    const obj = document.getElementById('loader');
+    obj.addEventListener('change', loadFile, false);
+    function loadFile(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          console.log(`>>> ${e.target.result}`);
+          json = JSON.parse(e.target.result);
+          console.log(`>>> ${json[0].title}`);
+          console.log(`>>> ${json[0].body}`);
+        };
+        reader.readAsText(file);
+      }
+    }
+  </script>
+</body>
+</html>
