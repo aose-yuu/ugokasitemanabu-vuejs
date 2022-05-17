@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>仮データで表示するToDoリスト</h2>
+  <div id="app">
+    <div v-for="todo in todos">
+      <label>
+        <input type="checkbox" v-model="todo.done">
+        <span v-bind:class="{donestyle: todo.done}">{{ todo.name }}</span>
+      </label>
+    </div>
+    <p>{{ doneTodo }} / {{ allTodo }}件 処理済み</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        todos: [
+          {done: false, name: 'パンを買う'},
+          {done: false, name: 'コーヒーを買う'}
+        ]
+      },
+      computed: {
+        allTodo: function() {
+          return this.todos.length;
+        },
+        doneTodo: function() {
+          return this.todos.filter((value) => {
+            return value.done;
+          }).length;
+        }
+      }
+    })
+  </script>
+
+  <style>
+    .donestyle {
+      text-decoration: line-through;
+      color: lightgray;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p class="strike-through">直接クラスを指定</p>
+    <p v-bind:class="myClass">v-bindでクラスを指定</p>
+    <p class="darkClass">v-bindで複数のクラスを指定</p>
+    <p v-bind:class="{'strike-through': isON}">データでクラスをON/OFF</p>
+  </div>
+
+  <style>
+  .strike-through {
+    text-decoration: line-through;
+      color: lightgray;
+  }
+  .dark {
+    background-color: gray;
+  }
+  </style>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myClass: 'strike-through',
+        darkClass: 'dark',
+        isON: true
+      }
+    })
+  </script>
+</body>
+</html>

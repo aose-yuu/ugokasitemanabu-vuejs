@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>trueの時だけ表示する例</h2>
+  <div id="app">
+    <label><input type="checkbox" v-model="myCheck">表示する</label>
+    <p v-if="myCheck">チェックボックスはON</p>
+    <p v-else="myCheck">チェックボックスはOFF</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myCheck: false
+      }
+    })
+  </script>
+</body>
+</html>

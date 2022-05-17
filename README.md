@@ -19,7 +19,7 @@
   - reader.readAsText(file)
 
 - Vue.js
-  - v-model.~
+  - ~~v-model.number~~
   - v-bind:class="{donestyle: todo.done}" falseとtrueでクラスを付けるか判定
 
 - Google Charts

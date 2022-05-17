@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <h2>配列データをコンポーネントで並べる例</h2>
+  <div id="app">
+    <div v-for="object in dataArray" v-bind:key="object.title">
+      <my-product v-bind:object="object"></my-product>
+    </div>
+    <button v-on:click="sortData">ソート</button>
+    <button v-on:click="shuffleData">シャッフル</button>
+  </div>
+
+  <script>
+    const MyProduct = {
+      props: ['object'],
+      template: '<div style="width: 300px; backgroundColor: #ffddaa;"><p style="backgroundColor: #ffa95e;">タイトル：{{ object.title }}</p><p>解説：{{ object.body }}</p></div>'
+    };
+
+    new Vue({
+      el: '#app',
+      data: {
+        dataArray: [
+          {title: 'BBB', body: 'bbb'},
+          {title: 'AAA', body: 'aaa'},
+          {title: 'CCC', body: 'ccc'}
+        ]
+      },
+      components: {
+        'my-product': MyProduct
+      },
+      methods: {
+        sortData: function() {
+          this.dataArray.sort((a, b) => {
+            return a.title < b.title ? -1 : 1;
+            return 0;
+          })
+        },
+        shuffleData: function() {
+          let tmpArray = [];
+          let dataArrayLength = this.dataArray.length;
+          for (let i = dataArrayLength; dataArrayLength > 0; dataArrayLength--) {
+            let randNum = Math.floor(Math.random() * dataArrayLength);
+            let tmpObj = this.dataArray[randNum];
+            tmpArray.push(tmpObj);
+            this.dataArray.splice(randNum, 1);
+          }
+          this.dataArray = tmpArray;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
